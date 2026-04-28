@@ -30,6 +30,16 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "FERM" },
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "FERM Tech Rentals offers a lead-generation landing page for B2B clients seeking specialized equipment rental services." },
+      { property: "og:description", content: "FERM Tech Rentals offers a lead-generation landing page for B2B clients seeking specialized equipment rental services." },
+      { name: "twitter:description", content: "FERM Tech Rentals offers a lead-generation landing page for B2B clients seeking specialized equipment rental services." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e80e51c2-290e-4d03-8113-81a78b3679ae/id-preview-bc613feb--ad93c7ba-5827-46ae-957b-b61c0212bb59.lovable.app-1777362430159.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e80e51c2-290e-4d03-8113-81a78b3679ae/id-preview-bc613feb--ad93c7ba-5827-46ae-957b-b61c0212bb59.lovable.app-1777362430159.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {

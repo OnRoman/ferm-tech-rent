@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import logoUrl from "@/assets/ferm-logo.svg";
 
 export function TopBar() {
   const [open, setOpen] = useState(false);
@@ -39,9 +40,9 @@ export function TopBar() {
       {/* Main header */}
       <div className="bg-background shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
-          <a href="/" className="flex flex-col leading-none">
-            <span className="text-2xl font-extrabold tracking-tight text-primary md:text-3xl">FERM</span>
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Агроплатформа</span>
+          <a href="/" className="flex items-center gap-2 leading-none">
+            <img src={logoUrl} alt="FERM" className="h-8 w-auto md:h-9" />
+            <span className="hidden text-[10px] uppercase tracking-wider text-muted-foreground sm:block">Агроплатформа</span>
           </a>
 
           <nav className="hidden items-center gap-7 lg:flex">

@@ -1,33 +1,69 @@
 import { ArrowRight } from "lucide-react";
-import excavator from "@/assets/cat-excavator.jpg";
-import attachments from "@/assets/cat-attachments.jpg";
-import crane from "@/assets/cat-crane.jpg";
-import dumptruck from "@/assets/cat-dumptruck.jpg";
-import loader from "@/assets/cat-loader.jpg";
-import bulldozer from "@/assets/cat-bulldozer.jpg";
-import lift from "@/assets/cat-lift.jpg";
-import road from "@/assets/cat-road.jpg";
-import roller from "@/assets/cat-roller.jpg";
 
 const items = [
-  { img: excavator, title: "Екскаватори", desc: "Екскаватори-навантажувачі, гусеничні, колісні та міні-екскаватори вагою від 1 до 30 тонн" },
-  { img: attachments, title: "Навісне обладнання", desc: "Гідромолот, ямобур, дорожня фреза, вила, гідроножиці для складних інженерних задач" },
-  { img: crane, title: "Автокрани", desc: "Вантажопідйомність від 10 до 300 тонн, стріла від 14 до 70 метрів" },
-  { img: dumptruck, title: "Самоскиди", desc: "Вантажопідйомність від 3 до 40 тонн, об'єм кузова від 5 до 35 м³" },
-  { img: loader, title: "Будівельні навантажувачі", desc: "Телескопічні, фронтальні, міні та гусеничні, підйом від 7 до 23 м" },
-  { img: bulldozer, title: "Техніка для земляних робіт", desc: "Бульдозери та грейдери вагою від 7 до 40 тонн, потужність до 350 к.с." },
-  { img: lift, title: "Підйомники", desc: "Автовишки та ножичні підйомники висотою від 7 до 66 метрів" },
-  { img: road, title: "Дорожня техніка", desc: "Асфальтоукладачі та дорожні фрези вагою від 5 до 30 тонн" },
-  { img: roller, title: "Котки", desc: "Дорожні та ґрунтові котки вагою від 1 до 25 тонн, вальці від 600 до 2500 мм" },
+  {
+    img: "https://www.truck1-fr.ch/img/xxl/19992/JCB-4X4-Backhoe-Loader-4CX-3CX-Chine_19992_5009701529.jpg",
+    title: "Екскаватори",
+    alt: "Екскаватор JCB на будмайданчику",
+    desc: "Екскаватори-навантажувачі, гусеничні, колісні та міні-екскаватори вагою від 1 до 30 тонн",
+    href: "https://ferm.in.ua/ekskavatori/c-398",
+  },
+  {
+    img: "https://storage.googleapis.com/production-gator-v1-0-0/840/387840/D4LIUHUy/3270b2a5e19f45a482391e402b87caac",
+    title: "Автокрани",
+    alt: "Автокран із висуненою стрілою на об'єкті",
+    desc: "Вантажопідйомність від 10 до 300 тонн, стріла від 14 до 70 метрів",
+    href: "https://ferm.in.ua/krani/c-412",
+  },
+  {
+    img: "https://www.westfalltande.com/fbm-data/images/service-pages/dump-truck-rental.webp",
+    title: "Самоскиди",
+    alt: "Самоскид з піднятим кузовом",
+    desc: "Вантажопідйомність від 3 до 40 тонн, об'єм кузова від 5 до 35 м³",
+    href: "https://ferm.in.ua/samoskidi/c-422",
+  },
+  {
+    img: "https://dewhurstagri.com/wp-content/uploads/2025/09/IMG_1718-2048x1536.jpeg",
+    title: "Будівельні навантажувачі",
+    alt: "Телескопічний навантажувач у роботі",
+    desc: "Телескопічні, фронтальні, міні та гусеничні, підйом від 7 до 23 м",
+    href: "https://ferm.in.ua/budivel-ni-navantazuvaci/c-389",
+  },
+  {
+    img: "https://quotor.com.au/wp-content/uploads/2026/01/cat-d6k-small-dozer.jpg.avif",
+    title: "Техніка для земляних робіт",
+    alt: "Бульдозер CAT D6K на земляних роботах",
+    desc: "Бульдозери та грейдери вагою від 7 до 40 тонн, потужність до 350 к.с.",
+    href: "https://ferm.in.ua/tehnika-dla-zemlanih-robit/c-430",
+  },
+  {
+    img: "https://haulotte.ephoto.fr/link/3c9igq/izw19x981afp97k.jpeg",
+    title: "Підйомники",
+    alt: "Автовишка Haulotte на майданчику",
+    desc: "Автовишки та ножичні підйомники висотою від 7 до 66 метрів",
+    href: "https://ferm.in.ua/pidiomniki/c-417",
+  },
+  {
+    img: "https://www.truck1.eu/img/xxl/44092/BOMAG-DE-BM-2000-65-STAGEV-Germany_44092_4864260031181.jpg",
+    title: "Дорожня техніка",
+    alt: "Асфальтоукладач BOMAG на дорозі",
+    desc: "Асфальтоукладачі та дорожні фрези вагою від 5 до 30 тонн",
+    href: "https://ferm.in.ua/dorozna-tehnika/c-394",
+  },
+  {
+    img: "https://img.waimaoniu.net/3642/3642-202510131636567759.jpg?x-oss-process=image/resize,m_lfit,w_800/format,webp",
+    title: "Котки",
+    alt: "Дорожній коток на ущільненні поверхні",
+    desc: "Дорожні та ґрунтові котки вагою від 1 до 25 тонн, вальці від 600 до 2500 мм",
+    href: "https://ferm.in.ua/kotki/c-407",
+  },
 ];
 
 export function Catalog() {
   const handleClick = (title: string) => {
-    // Facebook Pixel: ViewContent
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "ViewContent", { content_name: title });
     }
-    document.getElementById("zayavka")?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <section id="catalog" className="bg-background py-20">
@@ -38,18 +74,16 @@ export function Catalog() {
           </h2>
           <div className="mx-auto mt-3 h-1 w-20 rounded bg-accent" />
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => (
             <article
               key={it.title}
               className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-muted">
+              <div className="aspect-[4/3] overflow-hidden bg-muted rounded-t-xl">
                 <img
                   src={it.img}
-                  alt={it.title}
-                  width={800}
-                  height={600}
+                  alt={it.alt}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -57,15 +91,28 @@ export function Catalog() {
               <div className="p-6">
                 <h3 className="text-xl font-bold">{it.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{it.desc}</p>
-                <button
+                <a
+                  href={it.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => handleClick(it.title)}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark"
                 >
-                  Детальніше <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                  До техніки <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </div>
             </article>
           ))}
+        </div>
+        <div className="mt-12 flex justify-center">
+          <a
+            href="https://ferm.in.ua/orenda-spectehniki/c-388"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-8 py-3 text-base font-bold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+          >
+            Дивитись весь каталог спецтехніки на FERM <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>

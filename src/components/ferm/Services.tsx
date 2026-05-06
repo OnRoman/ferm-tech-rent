@@ -13,7 +13,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="bg-surface py-20">
+    <section id="services" className="bg-surface py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold md:text-4xl">
@@ -26,12 +26,20 @@ export function Services() {
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-xl bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 border border-border">
+            <div key={title} className="flex flex-col rounded-xl bg-card p-6 shadow-sm transition-all hover:shadow-lg hover:-translate-y-0.5 border border-border">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" />
               </div>
               <h3 className="mt-4 text-lg font-bold">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+              <a
+                href="https://ferm.in.ua/orenda-spectehniki/c-388"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-sm font-semibold text-primary hover:underline"
+              >
+                Підібрати техніку →
+              </a>
             </div>
           ))}
         </div>

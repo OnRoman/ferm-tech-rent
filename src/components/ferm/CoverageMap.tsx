@@ -33,7 +33,7 @@ export function CoverageMap() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="bg-surface py-20">
+    <section id="coverage" className="bg-surface py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold md:text-4xl">Географія нашої техніки</h2>

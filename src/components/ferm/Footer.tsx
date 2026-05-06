@@ -1,4 +1,5 @@
 import { Phone, Mail, Facebook, Instagram, Send } from "lucide-react";
+import logoUrl from "@/assets/ferm-logo.svg";
 
 const services = [
   { label: "Оренда спецтехніки", href: "https://ferm.in.ua/orenda-spectehniki/c-388" },
@@ -18,19 +19,21 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <div className="text-3xl font-extrabold text-primary">FERM</div>
+            <img src={logoUrl} alt="FERM" className="h-9 w-auto brightness-0 invert" />
             <p className="mt-3 text-sm text-white/70">
               Агроплатформа FERM — оренда спецтехніки по всій Україні
             </p>
             <ul className="mt-5 space-y-2 text-sm">
               <li>
                 <a href="tel:0800750707" className="flex items-center gap-2 text-white hover:text-primary">
-                  <Phone className="h-4 w-4" /> 0 800 75 07 07
+                  <Phone className="h-4 w-4" />
+                  <span>0 800 75 07 07</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:sales@ferm.in.ua" className="flex items-center gap-2 text-white hover:text-primary">
-                  <Mail className="h-4 w-4" /> sales@ferm.in.ua
+                  <Mail className="h-4 w-4" />
+                  <span>sales@ferm.in.ua</span>
                 </a>
               </li>
             </ul>

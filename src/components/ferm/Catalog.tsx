@@ -9,7 +9,7 @@ const items = [
     href: "https://ferm.in.ua/ekskavatori/c-398",
   },
   {
-    img: "https://storage.googleapis.com/production-gator-v1-0-0/840/387840/D4LIUHUy/3270b2a5e19f45a482391e402b87caac",
+    img: "https://img.waimaoniu.net/3642/3642-202510131636567759.jpg?x-oss-process=image/resize,m_lfit,w_800/format,webp",
     title: "Автокрани",
     alt: "Автокран із висуненою стрілою на об'єкті",
     desc: "Вантажопідйомність від 10 до 300 тонн, стріла від 14 до 70 метрів",
@@ -30,7 +30,7 @@ const items = [
     href: "https://ferm.in.ua/budivel-ni-navantazuvaci/c-389",
   },
   {
-    img: "https://quotor.com.au/wp-content/uploads/2026/01/cat-d6k-small-dozer.jpg.avif",
+    img: "https://storage.googleapis.com/production-gator-v1-0-0/840/387840/D4LIUHUy/3270b2a5e19f45a482391e402b87caac",
     title: "Техніка для земляних робіт",
     alt: "Бульдозер CAT D6K на земляних роботах",
     desc: "Бульдозери та грейдери вагою від 7 до 40 тонн, потужність до 350 к.с.",
@@ -51,7 +51,7 @@ const items = [
     href: "https://ferm.in.ua/dorozna-tehnika/c-394",
   },
   {
-    img: "https://img.waimaoniu.net/3642/3642-202510131636567759.jpg?x-oss-process=image/resize,m_lfit,w_800/format,webp",
+    img: "https://www.my-equipment.com/blog/wp-content/uploads/2019/11/C10572333.jpg",
     title: "Котки",
     alt: "Дорожній коток на ущільненні поверхні",
     desc: "Дорожні та ґрунтові котки вагою від 1 до 25 тонн, вальці від 600 до 2500 мм",

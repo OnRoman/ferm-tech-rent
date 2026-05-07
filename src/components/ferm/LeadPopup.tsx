@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { X, Phone, CheckCircle2 } from "lucide-react";
+import { X, Phone, CheckCircle2, Loader2 } from "lucide-react";
 import { trackLead } from "@/lib/pixel";
+import { submitToGoogleScript } from "@/config";
+
+const phoneRe = /^(\+380|0)[\d\s\-()]{9,}$/;
 
 export function LeadPopup() {
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState({ name: "", phone: "", website: "" });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -18,12 +24,29 @@ export function LeadPopup() {
 
   if (!open) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const valid = form.name.trim().length >= 2 && phoneRe.test(form.phone.replace(/\s/g, ""));
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Підключити бекенд для отримання ліда
-    trackLead("Popup");
-    setSent(true);
-    setTimeout(() => setOpen(false), 2500);
+    if (!valid || submitting) return;
+    if (form.website) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      await submitToGoogleScript({
+        formType: "popup",
+        name: form.name,
+        phone: form.phone,
+        source: "Лендінг — попап консультація",
+      });
+      trackLead("Popup");
+      setSent(true);
+      setTimeout(() => setOpen(false), 3000);
+    } catch {
+      setError("Щось пішло не так. Зателефонуйте нам: 0 800 75 07 07");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -36,7 +59,7 @@ export function LeadPopup() {
           <div className="py-8 text-center">
             <CheckCircle2 className="mx-auto h-14 w-14 text-primary" />
             <h3 className="mt-4 text-xl font-bold">Дякуємо!</h3>
-            <p className="mt-2 text-muted-foreground">Менеджер зателефонує вам найближчим часом.</p>
+            <p className="mt-2 text-muted-foreground">Зателефонуємо вам найближчим часом.</p>
           </div>
         ) : (
           <>
@@ -46,12 +69,18 @@ export function LeadPopup() {
               Залиште номер телефону — наш менеджер зателефонує та допоможе підібрати техніку під ваше завдання. Безкоштовно.
             </p>
             <form onSubmit={handleSubmit} className="mt-5 space-y-3">
-              <input required type="text" placeholder="Ваше ім'я"
+              <input type="text" tabIndex={-1} autoComplete="off" value={form.website}
+                onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))} className="hidden" aria-hidden="true" />
+              <input required type="text" placeholder="Ваше ім'я" value={form.name}
+                onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
                 className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none" />
-              <input required type="tel" placeholder="+380 ___ ___ __ __"
+              <input required type="tel" placeholder="+380 ___ ___ __ __" value={form.phone}
+                onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
                 className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none" />
-              <button type="submit" className="w-full rounded-lg bg-primary py-3.5 font-bold text-primary-foreground transition-transform hover:scale-[1.01] hover:bg-primary-dark">
-                Зателефонуйте мені
+              {error && <p className="text-sm font-semibold text-destructive">{error}</p>}
+              <button type="submit" disabled={!valid || submitting}
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3.5 font-bold text-primary-foreground transition-transform hover:scale-[1.01] hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50">
+                {submitting ? (<><Loader2 className="h-5 w-5 animate-spin" /> Відправляємо...</>) : "Зателефонуйте мені"}
               </button>
             </form>
             <p className="mt-4 text-center text-sm text-muted-foreground">

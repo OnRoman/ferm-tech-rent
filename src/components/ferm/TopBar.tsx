@@ -23,9 +23,6 @@ export function TopBar() {
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
           <a href="/" className="flex items-center gap-2 leading-none">
             <img src={logoUrl} alt="FERM" className="h-8 w-auto md:h-9" />
-            <span className="hidden text-[10px] uppercase tracking-wider text-muted-foreground sm:block">
-              Агроплатформа
-            </span>
           </a>
 
           <nav className="hidden items-center gap-7 lg:flex">

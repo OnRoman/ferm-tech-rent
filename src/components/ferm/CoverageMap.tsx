@@ -55,12 +55,21 @@ export function CoverageMap() {
             style={{ maxWidth: 800, aspectRatio: "1024 / 688" }}
             onMouseLeave={() => setActive(null)}
           >
-            <img
-              src={mapUrl}
-              alt="Карта України"
+            <div
+              aria-label="Карта України"
+              role="img"
               className="absolute inset-0 h-full w-full"
-              style={{ filter: "brightness(0.35) saturate(0%)", opacity: 0.7 }}
-              loading="lazy"
+              style={{
+                backgroundColor: "#393735",
+                WebkitMaskImage: `url(${mapUrl})`,
+                maskImage: `url(${mapUrl})`,
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+                maskSize: "contain",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+              }}
             />
             {cities.map((c) => {
               const size = c.capital ? 16 : 10;

@@ -22,15 +22,18 @@ export function WhyUs() {
           <h2 className="text-[40px] font-bold leading-tight text-white">Чому обирають FERM</h2>
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="flex flex-col items-center text-center">
-              {/* Placeholder: замінити на PNG-ілюстрації з Figma */}
-              <div className="flex h-[144px] w-[144px] items-center justify-center rounded-2xl bg-[#393735]">
-                <Icon className="h-16 w-16 text-[#F9D223]" strokeWidth={1.5} />
+              {/* 3D-style placeholder icon — замінити на PNG-ілюстрації з Figma */}
+              <div className="flex h-[140px] w-[140px] items-center justify-center">
+                <Icon
+                  className="h-24 w-24 text-[#F9D223] drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
+                  strokeWidth={1.25}
+                />
               </div>
-              <h3 className="mt-4 text-2xl font-bold text-white">{title}</h3>
-              <p className="mt-2 text-base text-[#B2ADA8]">{desc}</p>
+              <h3 className="mt-6 text-2xl font-bold text-white">{title}</h3>
+              <p className="mt-3 text-base text-[#B2ADA8]">{desc}</p>
             </div>
           ))}
         </div>

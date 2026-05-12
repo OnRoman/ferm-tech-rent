@@ -33,17 +33,23 @@ export function CoverageMap() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section id="coverage" className="bg-[#F5F5F5] py-20">
+    <section id="coverage" className="bg-[#222220] py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold md:text-4xl">Географія нашої техніки</h2>
-          <p className="mt-3 text-lg text-muted-foreground">
-            Працюємо по всій Україні — техніка сконцентрована у найбільших містах
-          </p>
-          <div className="mx-auto mt-3 h-1 w-20 rounded bg-accent" />
+          <h2 className="text-3xl font-extrabold text-white md:text-4xl">Географія техніки</h2>
         </div>
 
-        <div className="mx-auto mt-12 max-w-5xl rounded-2xl bg-card p-4 md:p-8 shadow-sm border border-border">
+        {/* City tags */}
+        <div className="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-2">
+          {cities.map((c) => (
+            <span key={c.name} className="rounded-full bg-white px-4 py-1.5 text-sm font-medium text-[#141413]">
+              {c.name}
+            </span>
+          ))}
+        </div>
+
+        {/* Map */}
+        <div className="mx-auto mt-10 max-w-5xl">
           <div
             className="relative mx-auto w-full"
             style={{ maxWidth: 800, aspectRatio: "1024 / 688" }}
@@ -53,15 +59,11 @@ export function CoverageMap() {
               src={mapUrl}
               alt="Карта України"
               className="absolute inset-0 h-full w-full"
-              style={{
-                filter:
-                  "brightness(0) saturate(100%) invert(72%) sepia(45%) saturate(458%) hue-rotate(73deg) brightness(94%) contrast(89%)",
-                opacity: 0.3,
-              }}
+              style={{ filter: "brightness(0.35) saturate(0%)", opacity: 0.7 }}
               loading="lazy"
             />
             {cities.map((c) => {
-              const size = c.capital ? 18 : 12;
+              const size = c.capital ? 16 : 10;
               const isActive = active === c.name;
               return (
                 <button
@@ -74,16 +76,17 @@ export function CoverageMap() {
                   aria-label={c.name}
                 >
                   <span
-                    className="block rounded-full bg-primary ring-2 ring-accent shadow-md transition-transform hover:scale-125"
+                    className="block rounded-full bg-[#3B9EFF] ring-2 ring-white/30 shadow-md transition-transform hover:scale-150"
                     style={{ width: size, height: size }}
                   />
                   {c.capital && (
                     <span
-                      className="absolute inset-0 -z-10 animate-ping rounded-full bg-primary/40"
+                      className="absolute -z-10 animate-ping rounded-full bg-[#3B9EFF]/30"
+                      style={{ width: 28, height: 28, left: -6, top: -6 }}
                     />
                   )}
                   {isActive && (
-                    <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-1 -translate-x-1/2 whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-semibold text-foreground shadow-lg ring-1 ring-border">
+                    <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-1 -translate-x-1/2 whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-semibold text-[#141413] shadow-lg">
                       {c.name}
                     </span>
                   )}
@@ -91,27 +94,29 @@ export function CoverageMap() {
               );
             })}
           </div>
-          <div className="mt-6 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground">
-            {cities.map((c) => (
-              <span key={c.name} className="rounded-full bg-muted px-3 py-1">{c.name}</span>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            Не знайшли ваше місто? <a href="tel:0800750707" className="font-semibold text-primary hover:underline">Зв'яжіться з нами</a> — ми знайдемо рішення!
+          <p className="mt-6 text-center text-sm text-white/60">
+            Не знайшли ваше місто?{" "}
+            <a href="tel:0800750707" className="font-semibold text-white hover:text-[#F9D223]">
+              Зв'яжіться з нами
+            </a>{" "}
+            — ми знайдемо рішення!
           </p>
         </div>
 
-        <div className="mx-auto mt-12 max-w-4xl rounded-2xl border-2 border-accent bg-card p-8 shadow-sm">
-          <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-2xl font-extrabold">Маєте спецтехніку? Здавайте в оренду через FERM!</h3>
-              <p className="mt-2 max-w-2xl text-muted-foreground">
+        {/* Partner banner — blue */}
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl bg-[#0099F7]">
+          <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:justify-between">
+            <div className="max-w-xl">
+              <h3 className="text-xl font-extrabold text-white md:text-2xl">
+                Маєте спецтехніку? Здавайте в оренду через FERM!
+              </h3>
+              <p className="mt-2 text-sm text-white/80">
                 Якщо у вас є спецтехніка, яка простоює — ви можете здавати її в оренду через платформу FERM і заробляти. Ми знайдемо замовників.
               </p>
             </div>
             <button
               onClick={() => setOpen(true)}
-              className="shrink-0 rounded-lg bg-accent px-6 py-3.5 font-bold text-accent-foreground shadow-md transition-transform hover:scale-105"
+              className="shrink-0 rounded-xl bg-[#F9D223] px-8 py-4 text-base font-bold text-[#141413] shadow-md transition-transform hover:scale-105"
             >
               Стати партнером
             </button>

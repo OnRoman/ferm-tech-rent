@@ -28,7 +28,7 @@ export function LeadForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!valid || submitting) return;
-    if (form.website) return; // honeypot
+    if (form.website) return;
     setSubmitting(true);
     setError(null);
     try {
@@ -57,19 +57,17 @@ export function LeadForm() {
           <h2 className="text-3xl font-extrabold text-[#141413] md:text-4xl">
             Залиште заявку — зв'яжемось з вами найближчим часом
           </h2>
-          <p className="mt-3 text-lg text-muted-foreground">
+          <p className="mt-3 text-lg text-[#908C88]">
             Розкажіть про ваше завдання — ми підберемо техніку та підготуємо КП
           </p>
         </div>
 
-        <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-8 shadow-xl">
+        <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-white p-8 shadow-xl md:p-10">
           {sent ? (
             <div className="py-10 text-center">
-              <CheckCircle2 className="mx-auto h-16 w-16 text-primary" />
-              <h3 className="mt-4 text-2xl font-extrabold">Дякуємо!</h3>
-              <p className="mt-2 text-muted-foreground">
-                Менеджер зв'яжеться з вами протягом 30 хвилин.
-              </p>
+              <CheckCircle2 className="mx-auto h-16 w-16 text-[#5C9803]" />
+              <h3 className="mt-4 text-2xl font-extrabold text-[#141413]">Дякуємо!</h3>
+              <p className="mt-2 text-[#908C88]">Менеджер зв'яжеться з вами протягом 30 хвилин.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -77,20 +75,19 @@ export function LeadForm() {
                 className="hidden" aria-hidden="true" />
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-[#141413]">Ім'я / Назва компанії *</label>
-                <input required type="text" maxLength={100} placeholder="напр., ООО Агроторг"
-                  value={form.name} onChange={update("name")}
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 transition-colors focus:border-primary focus:outline-none" />
+                <input required type="text" maxLength={100} value={form.name} onChange={update("name")}
+                  placeholder="напр., ООО Агроторг"
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-[#141413] placeholder:text-[#908C88] focus:border-[#5C9803] focus:outline-none" />
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-[#141413]">Номер телефону *</label>
-                <input required type="tel" placeholder="+380 00 00 00 000"
-                  value={form.phone} onChange={update("phone")}
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 focus:border-primary focus:outline-none" />
+                <input required type="tel" placeholder="+380 00 00 00 000" value={form.phone} onChange={update("phone")}
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-[#141413] placeholder:text-[#908C88] focus:border-[#5C9803] focus:outline-none" />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-semibold text-[#141413]">Тип техніки</label>
+                <label className="mb-1.5 block text-sm font-semibold text-[#141413]">Тип техніки *</label>
                 <select value={form.equipmentType} onChange={update("equipmentType")}
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 focus:border-primary focus:outline-none">
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-[#141413] focus:border-[#5C9803] focus:outline-none">
                   <option value="">Оберіть тип техніки</option>
                   {techTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
@@ -99,16 +96,17 @@ export function LeadForm() {
                 <label className="mb-1.5 block text-sm font-semibold text-[#141413]">Коментар</label>
                 <textarea rows={3} maxLength={1000} value={form.comment} onChange={update("comment")}
                   placeholder="Опишіть задачу, обсяг робіт, локацію..."
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 focus:border-primary focus:outline-none" />
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-[#141413] placeholder:text-[#908C88] focus:border-[#5C9803] focus:outline-none" />
               </div>
-              {error && <p className="text-sm font-semibold text-destructive">{error}</p>}
+              <p className="text-xs text-[#B2ADA8]">
+                Натискаючи на кнопку, я даю згоду на обробку персональних даних, згідно з умовами{" "}
+                <a href="https://ferm.in.ua/privacy" className="underline hover:text-[#5C9803]">Політики конфіденційності</a>
+              </p>
+              {error && <p className="text-sm font-semibold text-red-500">{error}</p>}
               <button type="submit" disabled={!valid || submitting}
                 className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#F9D223] py-4 text-base font-extrabold text-[#141413] shadow-lg transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50">
                 {submitting ? (<><Loader2 className="h-5 w-5 animate-spin" /> Відправляємо...</>) : "Надіслати"}
               </button>
-              <p className="text-xs text-muted-foreground">
-                Натискаючи на кнопку, я даю згоду на обробку персональних даних, згідно з умовами Політики конфіденційності.
-              </p>
             </form>
           )}
         </div>

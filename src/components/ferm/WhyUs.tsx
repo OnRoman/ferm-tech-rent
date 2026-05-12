@@ -13,21 +13,23 @@ const items = [
 
 export function WhyUs() {
   return (
-    <section className="relative overflow-hidden bg-[#222220] py-20 text-white">
-      <div className="pointer-events-none absolute -right-32 -top-32 h-[480px] w-[480px] rounded-full bg-[#393735] opacity-40 blur-3xl" />
-      <div className="container relative mx-auto px-4">
-        <h2 className="text-center text-[32px] font-bold text-white md:text-[40px]">
-          Чому обирають FERM
-        </h2>
-        <div className="mx-auto mt-3 h-1 w-20 rounded bg-[#F9D223]" />
+    <section className="relative bg-[#222220] py-20 overflow-hidden">
+      {/* Decorative ellipse */}
+      <div className="absolute -right-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#393735] opacity-30" />
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container relative mx-auto px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-[40px] font-bold leading-tight text-white">Чому обирають FERM</h2>
+        </div>
+
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="flex flex-col items-center text-center sm:items-start sm:text-left">
+            <div key={title} className="flex flex-col items-center text-center">
+              {/* Placeholder: замінити на PNG-ілюстрації з Figma */}
               <div className="flex h-[144px] w-[144px] items-center justify-center rounded-2xl bg-[#393735]">
-                <Icon className="h-16 w-16 text-[#F9D223]" />
+                <Icon className="h-16 w-16 text-[#F9D223]" strokeWidth={1.5} />
               </div>
-              <h3 className="mt-5 text-2xl font-bold text-white">{title}</h3>
+              <h3 className="mt-4 text-2xl font-bold text-white">{title}</h3>
               <p className="mt-2 text-base text-[#B2ADA8]">{desc}</p>
             </div>
           ))}

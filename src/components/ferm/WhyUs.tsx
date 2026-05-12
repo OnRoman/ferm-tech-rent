@@ -1,38 +1,36 @@
-import lightning from "@/assets/why/lightning.png";
-import percent from "@/assets/why/percent.png";
-import truck from "@/assets/why/truck.png";
-import excavator from "@/assets/why/excavator.png";
-import wallet from "@/assets/why/wallet.png";
-import ukraine from "@/assets/why/ukraine.png";
-import helmet from "@/assets/why/helmet.png";
-import gift from "@/assets/why/gift.png";
+import { Clock, Wallet, Wrench, Truck, FileText, MapPin, HardHat, Gift } from "lucide-react";
 
 const items = [
-  { img: lightning, title: "Швидка подача", desc: "Техніка на об'єкті від 2 годин" },
-  { img: percent, title: "Конкурентна ціна", desc: "Привабливі тарифи по всіх категоріях" },
-  { img: truck, title: "Комплексний підхід", desc: "Підбираємо техніку під будь-яке завдання" },
-  { img: excavator, title: "5 000+ одиниць", desc: "Великий автопарк техніки по всій Україні" },
-  { img: wallet, title: "Гнучка оплата", desc: "Працюємо з ПДВ та без ПДВ" },
-  { img: ukraine, title: "Вся Україна", desc: "Покриття у всіх великих містах" },
-  { img: helmet, title: "Оператори", desc: "Надаємо техніку з експертними операторами" },
-  { img: gift, title: "Бонусна програма", desc: "Знижки для постійних клієнтів" },
+  { icon: Clock, title: "Швидка подача", desc: "Техніка на об'єкті від 2 годин" },
+  { icon: Wallet, title: "Конкурентна ціна", desc: "Привабливі тарифи по всіх категоріях" },
+  { icon: Wrench, title: "Комплексний підхід", desc: "Підбираємо техніку під будь-яке завдання" },
+  { icon: Truck, title: "5 000+ одиниць", desc: "Великий автопарк техніки по всій Україні" },
+  { icon: FileText, title: "Гнучка оплата", desc: "Працюємо з ПДВ та без ПДВ" },
+  { icon: MapPin, title: "Вся Україна", desc: "Покриття у всіх великих містах" },
+  { icon: HardHat, title: "Оператори", desc: "Надаємо техніку з експертними операторами" },
+  { icon: Gift, title: "Бонусна програма", desc: "Знижки для постійних клієнтів" },
 ];
 
 export function WhyUs() {
   return (
-    <section className="bg-[#222220] py-20">
-      <div className="container mx-auto px-4">
+    <section className="relative bg-[#222220] py-20 overflow-hidden">
+      {/* Decorative ellipse */}
+      <div className="absolute -right-40 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[#393735] opacity-30" />
+
+      <div className="container relative mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold text-white md:text-5xl">Чому обирають FERM</h2>
+          <h2 className="text-[40px] font-bold leading-tight text-white">Чому обирають FERM</h2>
         </div>
 
-        <div className="mt-16 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map(({ img, title, desc }) => (
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="flex flex-col items-center text-center">
-              <img src={img} alt={title} loading="lazy" width={192} height={192}
-                className="h-36 w-36 object-contain md:h-48 md:w-48" />
-              <h3 className="mt-4 text-lg font-bold text-white md:text-xl">{title}</h3>
-              <p className="mt-2 max-w-[220px] text-sm text-[#B2ADA8]">{desc}</p>
+              {/* Placeholder: замінити на PNG-ілюстрації з Figma */}
+              <div className="flex h-[144px] w-[144px] items-center justify-center rounded-2xl bg-[#393735]">
+                <Icon className="h-16 w-16 text-[#F9D223]" strokeWidth={1.5} />
+              </div>
+              <h3 className="mt-4 text-2xl font-bold text-white">{title}</h3>
+              <p className="mt-2 text-base text-[#B2ADA8]">{desc}</p>
             </div>
           ))}
         </div>

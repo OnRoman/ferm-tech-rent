@@ -60,10 +60,11 @@ const items = [
 ];
 
 export function Catalog() {
-  const handleClick = (title: string) => {
+  const handleOrder = (title: string) => {
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "ViewContent", { content_name: title });
     }
+    document.getElementById("zayavka")?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <section id="catalog" className="bg-background py-20">
@@ -78,9 +79,12 @@ export function Catalog() {
           {items.map((it) => (
             <article
               key={it.title}
-              className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-muted rounded-t-xl">
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted rounded-t-xl">
+                <span className="absolute left-3 top-3 z-10 rounded-md bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground shadow">
+                  від 1200 грн/год
+                </span>
                 <img
                   src={it.img}
                   alt={it.alt}
@@ -88,17 +92,23 @@ export function Catalog() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-bold">{it.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{it.desc}</p>
+                <p className="mt-2 flex-1 text-sm text-muted-foreground">{it.desc}</p>
+                <button
+                  type="button"
+                  onClick={() => handleOrder(it.title)}
+                  className="mt-4 w-full rounded-lg bg-accent py-2.5 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.01]"
+                >
+                  Замовити
+                </button>
                 <a
                   href={it.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleClick(it.title)}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark"
+                  className="mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold text-primary hover:text-primary-dark"
                 >
-                  До техніки <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Парк техніки <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </article>
@@ -111,7 +121,7 @@ export function Catalog() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-8 py-3 text-base font-bold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
-            Дивитись весь каталог спецтехніки на FERM <ArrowRight className="h-5 w-5" />
+            Весь каталог спецтехніки <ArrowRight className="h-5 w-5" />
           </a>
         </div>
       </div>

@@ -76,30 +76,30 @@ export function Catalog() {
   };
 
   return (
-    <section id="catalog" className="bg-white py-20">
+    <section id="catalog" className="bg-[#F5F3F1] py-20">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold text-[#141413] md:text-4xl">
+          <h2 className="text-3xl font-extrabold text-[#141413] md:text-5xl">
             Надаємо в оренду такі види техніки
           </h2>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => (
             <article key={it.title}
-              className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
-              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+              className="group flex flex-col overflow-hidden rounded-3xl bg-white p-3 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
                 <img src={it.img} alt={it.alt} loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <span className="absolute left-3 top-3 rounded-full bg-[#222220]/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                <span className="absolute left-3 top-3 rounded-full bg-[#222220] px-3 py-1.5 text-xs font-semibold text-white">
                   {it.price}
                 </span>
               </div>
-              <div className="flex flex-1 flex-col p-5">
+              <div className="flex flex-1 flex-col p-4">
                 <h3 className="text-lg font-bold leading-tight text-[#141413]">{it.title}</h3>
                 <p className="mt-2 flex-1 text-sm text-[#908C88]">{it.desc}</p>
-                <div className="mt-4 flex flex-col gap-2">
+                <div className="mt-5 flex flex-col gap-3">
                   <button onClick={() => handleOrder(it.title)}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F5F3F1] py-2.5 text-sm font-bold text-[#141413] transition-colors hover:bg-[#E8E5E2]">
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F5F3F1] py-3 text-sm font-bold text-[#141413] transition-colors hover:bg-[#E8E5E2]">
                     Замовити <ArrowRight className="h-4 w-4" />
                   </button>
                   <a href={it.catalogHref} target="_blank" rel="noopener noreferrer"
@@ -113,8 +113,8 @@ export function Catalog() {
         </div>
         <div className="mt-12 flex justify-center">
           <a href="https://ferm.in.ua/orenda-spectehniki/c-388" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-[#5C9803] px-8 py-3 text-base font-bold text-[#5C9803] transition-colors hover:bg-[#5C9803] hover:text-white">
-            Весь каталог спецтехніки <ArrowRight className="h-5 w-5" />
+            className="inline-flex items-center gap-2 rounded-full bg-[#F9D223] px-10 py-4 text-base font-bold text-[#141413] shadow-sm transition-transform hover:scale-105">
+            Весь каталог спецтехніки
           </a>
         </div>
       </div>

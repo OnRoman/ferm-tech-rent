@@ -1,90 +1,127 @@
 import { useState } from "react";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, X, ChevronRight } from "lucide-react";
 import logoUrl from "@/assets/ferm-logo.svg";
+
+const subLinks = [
+  { label: "Агрокалендар", href: "https://ferm.in.ua/agrokalendar" },
+  { label: "Аналітика", href: "https://ferm.in.ua/analitika" },
+  { label: "Ціни на продукцію", href: "https://ferm.in.ua/cini" },
+  { label: "Калькулятори", href: "https://ferm.in.ua/kalkulyatori" },
+];
 
 export function TopBar() {
   const [open, setOpen] = useState(false);
-  const [contactsOpen, setContactsOpen] = useState(false);
-
-  const scrollTo = (id: string) => {
-    setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const navLinks = [
-    { label: "Техніка", id: "catalog" },
-    { label: "Послуги", id: "services" },
-    { label: "Географія", id: "coverage" },
-  ];
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="bg-background shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
-        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
-          <a href="/" className="flex items-center gap-2 leading-none">
+      {/* Top dark sub-header */}
+      <div className="hidden bg-[#222220] py-2 text-white lg:block">
+        <div className="container mx-auto flex items-center justify-between gap-4 px-4">
+          <nav className="flex items-center gap-5">
+            {subLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-bold text-white transition-colors hover:text-[#F9D223]"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="https://ferm.in.ua"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold text-[#F9D223] hover:underline"
+            >
+              Агро-помічниця
+            </a>
+          </nav>
+          <div className="flex items-center gap-5">
+            <a href="tel:+380800750707" className="text-sm font-bold text-white hover:text-[#F9D223]">
+              +380 800 75 07 07
+            </a>
+            <span className="text-sm text-white/70">Ціни в ГРН</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main header */}
+      <div className="bg-white py-3 shadow">
+        <div className="container mx-auto flex items-center gap-4 px-4">
+          <a href="https://ferm.in.ua" className="flex shrink-0 items-center gap-2 leading-none">
             <img src={logoUrl} alt="FERM" className="h-8 w-auto md:h-9" />
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex">
-            {navLinks.map((l) => (
-              <button
-                key={l.id}
-                onClick={() => scrollTo(l.id)}
-                className="text-sm font-medium text-foreground transition-colors hover:text-primary"
-              >
-                {l.label}
-              </button>
-            ))}
-            <div
-              className="relative"
-              onMouseEnter={() => setContactsOpen(true)}
-              onMouseLeave={() => setContactsOpen(false)}
+          <nav className="hidden items-center gap-2 lg:flex">
+            <a
+              href="https://ferm.in.ua/orenda-spectehniki/c-388"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#F9D223] px-4 py-2 text-base font-bold text-[#141413]"
             >
-              <button
-                onClick={() => {
-                  setContactsOpen((v) => !v);
-                  scrollTo("zayavka");
-                }}
-                className="flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
-              >
-                Контакти
-                <ChevronDown className="h-3.5 w-3.5" />
-              </button>
-              {contactsOpen && (
-                <div className="absolute left-0 top-full min-w-[160px] rounded-md border border-border bg-background py-2 shadow-lg">
-                  <a
-                    href="https://ferm.in.ua/pro-nas"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-4 py-2 text-sm hover:bg-muted hover:text-primary"
-                  >
-                    Про нас
-                  </a>
-                </div>
-              )}
-            </div>
+              Товари
+            </a>
+            <a
+              href="https://ferm.in.ua/poslugi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-base font-bold text-[#141413] hover:text-[#5C9803]"
+            >
+              Послуги
+            </a>
+            <a
+              href="https://ferm.in.ua/ogoloshennya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-base font-bold text-[#141413] hover:text-[#5C9803]"
+            >
+              Оголошення
+            </a>
           </nav>
+
+          {/* Search */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="hidden flex-1 items-center overflow-hidden rounded-full border border-border bg-white md:flex"
+          >
+            <Search className="ml-3 h-4 w-4 text-muted-foreground" />
+            <input
+              type="search"
+              placeholder="Я шукаю..."
+              className="flex-1 bg-transparent px-3 py-2 text-sm outline-none"
+            />
+            <button
+              type="submit"
+              className="bg-[#F9D223] px-5 py-2 text-sm font-bold text-[#141413] hover:brightness-95"
+            >
+              Шукати
+            </button>
+          </form>
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:+380800750707"
-              className="hidden items-center gap-1.5 text-sm font-bold text-primary hover:text-primary-dark lg:flex"
+              href="https://ferm.in.ua/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-1.5 rounded-full bg-[#F9D223] px-4 py-2 text-sm font-bold text-[#141413] hover:brightness-95 md:inline-flex"
             >
-              <Phone className="h-4 w-4" />
-              0 800 75 07 07
+              <User className="h-4 w-4" />
+              Увійти
             </a>
             <a
-              href="tel:+380800750707"
-              className="flex items-center gap-1.5 text-sm font-semibold text-primary lg:hidden"
+              href="https://ferm.in.ua/cart"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Кошик"
+              className="relative rounded-full p-2 hover:bg-muted"
             >
-              <Phone className="h-4 w-4" />
+              <ShoppingCart className="h-5 w-5 text-[#141413]" />
+              <span className="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#5C9803] text-[10px] font-bold text-white">
+                2
+              </span>
             </a>
-            <button
-              onClick={() => scrollTo("zayavka")}
-              className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary-dark sm:inline-block"
-            >
-              Залишити заявку
-            </button>
             <button
               aria-label="Меню"
               onClick={() => setOpen((v) => !v)}
@@ -95,47 +132,28 @@ export function TopBar() {
           </div>
         </div>
 
+        {/* Breadcrumbs */}
+        <div className="hidden border-t border-border lg:block">
+          <div className="container mx-auto flex items-center gap-1.5 px-4 py-2 text-sm text-muted-foreground">
+            <a href="https://ferm.in.ua" className="hover:text-[#5C9803]">Головна</a>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-[#141413]">Оренда спецтехніки</span>
+          </div>
+        </div>
+
         {/* Mobile menu */}
         {open && (
-          <div className="border-t border-border bg-background lg:hidden">
-            <nav className="container mx-auto flex flex-col px-4 py-3">
-              {navLinks.map((l) => (
-                <button
-                  key={l.id}
-                  onClick={() => scrollTo(l.id)}
-                  className="border-b border-border py-3 text-left text-sm font-medium hover:text-primary"
-                >
-                  {l.label}
-                </button>
-              ))}
-              <button
-                onClick={() => scrollTo("zayavka")}
-                className="border-b border-border py-3 text-left text-sm font-medium hover:text-primary"
-              >
-                Контакти
-              </button>
-              <a
-                href="https://ferm.in.ua/pro-nas"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-b border-border py-3 text-sm font-medium hover:text-primary"
-              >
-                Про нас
-              </a>
-              <a
-                href="tel:+380800750707"
-                className="flex items-center gap-2 border-b border-border py-3 text-sm font-bold text-primary"
-              >
-                <Phone className="h-4 w-4" />
-                0 800 75 07 07
-              </a>
-              <button
-                onClick={() => scrollTo("zayavka")}
-                className="mt-3 rounded-full bg-primary px-5 py-3 text-sm font-bold text-primary-foreground"
-              >
-                Залишити заявку
-              </button>
-            </nav>
+          <div className="border-t border-border bg-white lg:hidden">
+            <div className="container mx-auto flex flex-col gap-3 px-4 py-4">
+              <form onSubmit={(e) => e.preventDefault()} className="flex items-center overflow-hidden rounded-full border border-border">
+                <Search className="ml-3 h-4 w-4 text-muted-foreground" />
+                <input type="search" placeholder="Я шукаю..." className="flex-1 bg-transparent px-3 py-2 text-sm outline-none" />
+                <button type="submit" className="bg-[#F9D223] px-4 py-2 text-sm font-bold text-[#141413]">Шукати</button>
+              </form>
+              <a href="https://ferm.in.ua/orenda-spectehniki/c-388" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#F9D223] px-4 py-2 text-center text-base font-bold text-[#141413]">Товари</a>
+              <a href="https://ferm.in.ua/poslugi" target="_blank" rel="noopener noreferrer" className="border-b border-border py-2 text-base font-bold">Послуги</a>
+              <a href="https://ferm.in.ua/ogoloshennya" target="_blank" rel="noopener noreferrer" className="border-b border-border py-2 text-base font-bold">Оголошення</a>
+            </div>
           </div>
         )}
       </div>

@@ -29,8 +29,8 @@ export function WhyUs() {
         <div className="mt-16 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ img, title, desc }) => (
             <div key={title} className="flex flex-col items-center text-center">
-              <img src={img} alt={title} loading="lazy" width={128} height={128}
-                className="h-24 w-24 object-contain md:h-32 md:w-32" />
+              <img src={img} alt={title} loading="lazy" width={192} height={192}
+                className="h-36 w-36 object-contain md:h-48 md:w-48" />
               <h3 className="mt-4 text-lg font-bold text-white md:text-xl">{title}</h3>
               <p className="mt-2 max-w-[220px] text-sm text-[#B2ADA8]">{desc}</p>
             </div>

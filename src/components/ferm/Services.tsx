@@ -1,14 +1,14 @@
-import { Mountain, PackageOpen, Construction, Hammer, Zap, Trees, Truck, ClipboardList, ArrowRight } from "lucide-react";
+import { Shovel, Forklift, TrafficCone, HardHat, Waves, Trees, Recycle, Package, ArrowRight } from "lucide-react";
 
 const services = [
-  { icon: Mountain, title: "Земляні роботи", desc: "Розчищення, планування території, риття траншей, переміщення ґрунту" },
-  { icon: PackageOpen, title: "Вантажно-розвантажувальні", desc: "Встановлення обладнання, переміщення будматеріалів" },
-  { icon: Construction, title: "Дорожні роботи", desc: "Будівництво доріг, укладання асфальту, бордюрів, тротуарів" },
-  { icon: Hammer, title: "Монтажно-демонтажні", desc: "Встановлення конструкцій, знесення споруд" },
-  { icon: Zap, title: "Комунікаційні роботи", desc: "Прокладка трубопроводів, електричних комунікацій" },
+  { icon: Shovel, title: "Земляні роботи", desc: "Розчищення, планування території, риття траншей, переміщення ґрунту" },
+  { icon: Forklift, title: "Вантажно-розвантажувальні", desc: "Встановлення обладнання, переміщення будматеріалів" },
+  { icon: TrafficCone, title: "Дорожні роботи", desc: "Будівництво доріг, укладання асфальту, бордюрів, тротуарів" },
+  { icon: HardHat, title: "Монтажно-демонтажні", desc: "Встановлення конструкцій, знесення споруд" },
+  { icon: Waves, title: "Комунікаційні роботи", desc: "Прокладка трубопроводів, електричних комунікацій" },
   { icon: Trees, title: "Ландшафтні роботи", desc: "Благоустрій, очищення водойм, прибирання снігу" },
-  { icon: Truck, title: "Вивіз матеріалів", desc: "Будівельне сміття, ґрунт, металобрухт" },
-  { icon: ClipboardList, title: "Комплексні проєкти", desc: "Повний цикл робіт під ключ з супроводом" },
+  { icon: Recycle, title: "Вивіз матеріалів", desc: "Будівельне сміття, ґрунт, металобрухт" },
+  { icon: Package, title: "Комплексні проєкти", desc: "Повний цикл робіт під ключ з супроводом" },
 ];
 
 export function Services() {

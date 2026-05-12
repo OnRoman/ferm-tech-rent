@@ -52,24 +52,14 @@ export function CoverageMap() {
         <div className="mx-auto mt-10 max-w-5xl">
           <div
             className="relative mx-auto w-full"
-            style={{ maxWidth: 800, aspectRatio: "1024 / 688" }}
+            style={{ maxWidth: 800, aspectRatio: "672 / 571" }}
             onMouseLeave={() => setActive(null)}
           >
             <div
               aria-label="Карта України"
               role="img"
-              className="absolute inset-0 h-full w-full"
-              style={{
-                backgroundColor: "#393735",
-                WebkitMaskImage: `url(${mapUrl})`,
-                maskImage: `url(${mapUrl})`,
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-              }}
+              className="absolute inset-0 h-full w-full [&_svg]:h-full [&_svg]:w-full [&_svg_path]:fill-[#393735] [&_svg_path]:stroke-white/10 [&_svg_path]:[stroke-width:0.7] [&_svg_path]:[vector-effect:non-scaling-stroke]"
+              dangerouslySetInnerHTML={{ __html: mapSvg }}
             />
             {cities.map((c) => {
               const size = c.capital ? 16 : 10;

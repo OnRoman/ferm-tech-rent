@@ -59,7 +59,7 @@ export function CoverageMap() {
               src={mapUrl}
               alt="Карта України"
               className="absolute inset-0 h-full w-full"
-              style={{ filter: "brightness(0.35) saturate(0%)", opacity: 0.7 }}
+              style={{ filter: "brightness(0) saturate(100%) invert(20%) sepia(6%) saturate(296%) hue-rotate(15deg) brightness(95%) contrast(85%)" }}
               loading="lazy"
             />
             {cities.map((c) => {

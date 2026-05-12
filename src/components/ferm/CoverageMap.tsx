@@ -94,9 +94,9 @@ export function CoverageMap() {
               );
             })}
           </div>
-          <p className="mt-6 text-center text-sm text-white/60">
+          <p className="mt-6 text-center text-sm text-white/70">
             Не знайшли ваше місто?{" "}
-            <a href="tel:0800750707" className="font-semibold text-white hover:text-[#F9D223]">
+            <a href="tel:0800750707" className="font-semibold text-[#0099F7] underline-offset-4 hover:underline">
               Зв'яжіться з нами
             </a>{" "}
             — ми знайдемо рішення!

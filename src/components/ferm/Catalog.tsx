@@ -90,7 +90,7 @@ export function Catalog() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
                 <img src={it.img} alt={it.alt} loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <span className="absolute left-3 top-3 rounded-md bg-[#F9D223] px-2.5 py-1 text-xs font-bold text-[#141413]">
+                <span className="absolute left-3 top-3 rounded-md bg-[#222220] px-2.5 py-1 text-xs font-bold text-white">
                   {it.price}
                 </span>
               </div>
@@ -99,12 +99,12 @@ export function Catalog() {
                 <p className="mt-2 flex-1 text-sm text-[#908C88]">{it.desc}</p>
                 <div className="mt-5 flex flex-col gap-3">
                   <button onClick={() => handleOrder(it.title)}
-                    className="inline-flex w-full items-center justify-center rounded-lg bg-[#F9D223] py-3 text-sm font-bold text-[#141413] transition-transform hover:scale-[1.02]">
-                    Замовити
+                    className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#F5F3F1] py-3 text-sm font-bold text-[#141413] transition-colors hover:bg-[#ECE9E5]">
+                    Замовити <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
                   <a href={it.catalogHref} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1 text-sm font-semibold text-[#0099F7] hover:opacity-80">
-                    Парк техніки <ArrowRight className="h-4 w-4" />
+                    className="inline-flex items-center justify-center text-sm font-semibold text-[#0099F7] hover:opacity-80">
+                    Парк техніки
                   </a>
                 </div>
               </div>

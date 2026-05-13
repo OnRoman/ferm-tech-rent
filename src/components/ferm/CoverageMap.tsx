@@ -58,7 +58,7 @@ export function CoverageMap() {
             <div
               aria-label="Карта України"
               role="img"
-              className="absolute inset-0 h-full w-full [&_svg]:h-full [&_svg]:w-full [&_svg_path]:fill-[#3a3a38] [&_svg_path]:stroke-[#222220] [&_svg_path]:[stroke-width:1] [&_svg_path]:[vector-effect:non-scaling-stroke]"
+              className="absolute inset-0 h-full w-full [&_svg]:h-full [&_svg]:w-full [&_svg_path]:fill-[#2f2f2d] [&_svg_path]:stroke-[#4a4a47] [&_svg_path]:[stroke-width:0.6] [&_svg_path]:[vector-effect:non-scaling-stroke]"
               dangerouslySetInnerHTML={{ __html: mapSvg }}
             />
             {cities.map((c) => {

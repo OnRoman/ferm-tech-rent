@@ -1,5 +1,6 @@
 import { useState } from "react";
 import mapSvg from "@/assets/ukraine-oblasts.svg?raw";
+import bulldozer from "@/assets/bulldozer.png";
 import { PartnerModal } from "./PartnerModal";
 
 const cities: { name: string; x: number; y: number; capital?: boolean }[] = [

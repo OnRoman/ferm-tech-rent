@@ -14,31 +14,6 @@ export function TopBar() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Subheader — dark bar */}
-      <div className="hidden bg-[#222220] lg:block">
-        <div className="container mx-auto flex items-center justify-between px-4 py-2">
-          <nav className="flex items-center gap-5">
-            {subLinks.map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                className="text-sm font-bold text-white/90 transition-colors hover:text-[#F9D223]">
-                {l.label}
-              </a>
-            ))}
-            <a href="https://ferm.in.ua/agro-pomichnycya" target="_blank" rel="noopener noreferrer"
-              className="text-sm font-bold text-[#F9D223] transition-opacity hover:opacity-80">
-              Агро-помічниця
-            </a>
-          </nav>
-          <div className="flex items-center gap-5">
-            <a href="tel:+380800750707" className="flex items-center gap-1.5 text-sm font-bold text-white">
-              <Phone className="h-3.5 w-3.5" />
-              +380 800 75 07 07
-            </a>
-            <span className="text-sm font-bold text-white/70">Ціни в ГРН</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main header */}
       <div className="bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
         <div className="container mx-auto flex items-center gap-4 px-4 py-3">

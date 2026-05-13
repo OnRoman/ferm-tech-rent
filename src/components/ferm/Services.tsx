@@ -23,7 +23,7 @@ export function Services() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="group flex flex-col rounded-3xl bg-[#F5F3F1] p-6 transition-all hover:-translate-y-1 hover:shadow-lg">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-[#141413] shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#141413]">
                 <Icon className="h-6 w-6" strokeWidth={2} />
               </div>
               <h3 className="mt-8 text-xl font-bold text-[#141413]">{title}</h3>

@@ -86,8 +86,8 @@ export function Catalog() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => (
             <article key={it.title}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white p-3 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                 <img src={it.img} alt={it.alt} loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute left-3 top-3 rounded-full bg-[#222220] px-3.5 py-1.5 text-xs font-bold text-white">

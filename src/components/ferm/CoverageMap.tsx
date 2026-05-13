@@ -104,13 +104,13 @@ export function CoverageMap() {
         </div>
 
         {/* Partner banner — blue */}
-        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl bg-[#0099F7]">
-          <div className="relative flex flex-col items-center gap-6 p-8 md:flex-row md:justify-between md:gap-4">
-            <div className="z-10 max-w-xl">
+        <div className="mx-auto mt-12 max-w-5xl rounded-2xl bg-[#0099F7]">
+          <div className="relative flex min-h-[180px] flex-col items-center gap-6 px-8 py-8 md:flex-row md:justify-between md:gap-4 md:py-6">
+            <div className="z-10 max-w-md">
               <h3 className="text-xl font-extrabold text-white md:text-2xl">
                 Маєте спецтехніку? Здавайте в оренду через FERM!
               </h3>
-              <p className="mt-3 max-w-md text-sm text-white/90">
+              <p className="mt-3 text-sm text-white/90">
                 Якщо у вас є спецтехніка, яка простоює — ви можете здавати її в оренду через платформу FERM і заробляти. Ми знайдемо замовників.
               </p>
             </div>
@@ -121,7 +121,7 @@ export function CoverageMap() {
               loading="lazy"
               width={800}
               height={512}
-              className="pointer-events-none absolute right-[180px] top-1/2 hidden h-[140%] w-auto -translate-y-1/2 select-none object-contain md:block"
+              className="pointer-events-none absolute bottom-0 right-[210px] hidden h-[125%] w-auto -translate-y-0 select-none object-contain md:block"
             />
             <button
               onClick={() => setOpen(true)}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import mapUrl from "@/assets/ukraine-map.svg";
+import bulldozerImg from "@/assets/bulldozer.png";
 import { PartnerModal } from "./PartnerModal";
 
 const cities: { name: string; x: number; y: number; capital?: boolean }[] = [
@@ -113,19 +114,26 @@ export function CoverageMap() {
         </div>
 
         {/* Partner banner — blue */}
-        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl bg-[#0099F7]">
-          <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:justify-between">
-            <div className="max-w-xl">
+        <div className="relative mx-auto mt-12 max-w-6xl overflow-hidden rounded-2xl bg-[#0099F7]">
+          <div className="relative flex flex-col items-center gap-6 p-6 md:flex-row md:items-center md:justify-between md:p-8">
+            <div className="relative z-10 max-w-xl">
               <h3 className="text-xl font-extrabold text-white md:text-2xl">
                 Маєте спецтехніку? Здавайте в оренду через FERM!
               </h3>
-              <p className="mt-2 text-sm text-white/80">
+              <p className="mt-2 text-sm text-white/85 md:text-base">
                 Якщо у вас є спецтехніка, яка простоює — ви можете здавати її в оренду через платформу FERM і заробляти. Ми знайдемо замовників.
               </p>
             </div>
+            <img
+              src={bulldozerImg}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="pointer-events-none absolute right-[180px] top-1/2 hidden h-[140%] -translate-y-1/2 select-none object-contain md:block lg:right-[220px]"
+            />
             <button
               onClick={() => setOpen(true)}
-              className="shrink-0 rounded-xl bg-[#F9D223] px-8 py-4 text-base font-bold text-[#141413] shadow-md transition-transform hover:scale-105"
+              className="relative z-10 shrink-0 rounded-xl bg-[#F9D223] px-8 py-4 text-base font-bold text-[#141413] shadow-md transition-transform hover:scale-105"
             >
               Стати партнером
             </button>

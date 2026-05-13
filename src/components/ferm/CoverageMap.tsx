@@ -1,6 +1,5 @@
 import { useState } from "react";
-import mapSvg from "@/assets/ukraine-oblasts.svg?raw";
-import bulldozer from "@/assets/bulldozer.png";
+import mapUrl from "@/assets/ukraine-map.svg";
 import { PartnerModal } from "./PartnerModal";
 
 const cities: { name: string; x: number; y: number; capital?: boolean }[] = [
@@ -53,14 +52,24 @@ export function CoverageMap() {
         <div className="mx-auto mt-10 max-w-5xl">
           <div
             className="relative mx-auto w-full"
-            style={{ maxWidth: 800, aspectRatio: "672 / 571" }}
+            style={{ maxWidth: 800, aspectRatio: "1024 / 688" }}
             onMouseLeave={() => setActive(null)}
           >
             <div
               aria-label="Карта України"
               role="img"
-              className="absolute inset-0 h-full w-full [&_svg]:h-full [&_svg]:w-full [&_svg_path]:fill-[#3a3a38] [&_svg_path]:stroke-[#525250] [&_svg_path]:[stroke-width:0.5] [&_svg_path]:[vector-effect:non-scaling-stroke]"
-              dangerouslySetInnerHTML={{ __html: mapSvg }}
+              className="absolute inset-0 h-full w-full"
+              style={{
+                backgroundColor: "#393735",
+                WebkitMaskImage: `url(${mapUrl})`,
+                maskImage: `url(${mapUrl})`,
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+                maskSize: "contain",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+              }}
             />
             {cities.map((c) => {
               const size = c.capital ? 16 : 10;
@@ -104,28 +113,19 @@ export function CoverageMap() {
         </div>
 
         {/* Partner banner — blue */}
-        <div className="mx-auto mt-12 max-w-5xl rounded-2xl bg-[#0099F7]">
-          <div className="relative flex min-h-[180px] flex-col items-center gap-6 px-8 py-8 md:flex-row md:justify-between md:gap-4 md:py-6">
-            <div className="z-10 max-w-md">
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl bg-[#0099F7]">
+          <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:justify-between">
+            <div className="max-w-xl">
               <h3 className="text-xl font-extrabold text-white md:text-2xl">
                 Маєте спецтехніку? Здавайте в оренду через FERM!
               </h3>
-              <p className="mt-3 text-sm text-white/90">
+              <p className="mt-2 text-sm text-white/80">
                 Якщо у вас є спецтехніка, яка простоює — ви можете здавати її в оренду через платформу FERM і заробляти. Ми знайдемо замовників.
               </p>
             </div>
-            <img
-              src={bulldozer}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              width={800}
-              height={512}
-              className="pointer-events-none absolute bottom-0 right-[210px] hidden h-[125%] w-auto -translate-y-0 select-none object-contain md:block"
-            />
             <button
               onClick={() => setOpen(true)}
-              className="z-10 shrink-0 rounded-xl bg-[#F9D223] px-8 py-4 text-base font-bold text-[#141413] shadow-md transition-transform hover:scale-105"
+              className="shrink-0 rounded-xl bg-[#F9D223] px-8 py-4 text-base font-bold text-[#141413] shadow-md transition-transform hover:scale-105"
             >
               Стати партнером
             </button>

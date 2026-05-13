@@ -32,7 +32,7 @@
   --color-surface: var(--surface);
   --color-surface-dark: var(--surface-dark);
   --color-surface-dark-foreground: var(--surface-dark-foreground);
-  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 :root {

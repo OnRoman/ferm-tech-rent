@@ -103,7 +103,7 @@ export function Catalog() {
                     Замовити
                   </button>
                   <a href={it.catalogHref} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1 text-sm font-semibold text-[#5C9803] hover:opacity-80">
+                    className="inline-flex items-center justify-center gap-1 text-sm font-semibold text-[#0099F7] hover:opacity-80">
                     Парк техніки <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
